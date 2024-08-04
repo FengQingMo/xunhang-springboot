@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57a69577-3193-4d62-916a-f5037eb9e65a" name="更改" comment="基本聊天功能">
+      <change afterPath="$PROJECT_DIR$/message-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/MessageServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/UserHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/json/JacksonObjectMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/result/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/config/RabbitmqConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/constant/RabbitConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/constant/RedisConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/FriendMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/MessageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/Friend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/vo/FriendVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/vo/UserVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/ChatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/FriendService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/MessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/ChatServiceimpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/FriendServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/MessageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xunhang-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xunhang-common/src/main/java/com/xunhang/common/domain/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xunhang-common/src/main/java/com/xunhang/common/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/XunhangApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/XunhangApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/UserHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/common/UserHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/exception/AccountLockedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/exception/AccountLockedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/exception/AccountNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/exception/AccountNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/exception/BaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/exception/BaseException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/exception/DeletionNotAllowedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/exception/DeletionNotAllowedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/exception/LoginFailedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/exception/LoginFailedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/exception/UserNotLoginException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/exception/UserNotLoginException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/json/JacksonObjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/common/json/JacksonObjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/properties/AliOssProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/properties/AliOssProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/properties/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/properties/JwtProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/properties/WeChatProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/properties/WeChatProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/result/PageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/common/result/PageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/common/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/common/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/config/MybatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/config/MybatisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/config/OssConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/config/OssConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/constant/JwtClaimsConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/constant/JwtClaimsConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/constant/RedisConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/common/constants/RedisConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/constant/StatusConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/constant/StatusConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/constant/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/constant/SystemConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/controller/user/AnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/AnnouncementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/controller/user/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/controller/user/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/CommonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/controller/user/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/controller/user/WebSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/WebSocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/handle/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/handle/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/handle/MybatistHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/handle/MybatistHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/interceptor/JwtTokenAdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/AnnouncementMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/AnnouncementMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/FriendMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/mapper/FriendMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/ItemImageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/ItemImageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/ItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/MessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/mapper/MessageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/ReplyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/ReplyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/dto/CommentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/dto/CommentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/dto/ItemChangeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/dto/ItemChangeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/dto/ItemHomeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/dto/ItemHomeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/dto/ItemPublishDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/dto/ItemPublishDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/dto/ReplyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/dto/ReplyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/dto/UserLoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/dto/UserLoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/Announcement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/pojo/entity/Friend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/ItemImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/ItemImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/pojo/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/Reply.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/Reply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/vo/CommentVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/vo/CommentVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/vo/FriendVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/pojo/vo/FriendVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/vo/ItemVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/vo/ItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/vo/ReplyVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/vo/ReplyVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/vo/UserLoginVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/pojo/vo/UserLoginVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/pojo/vo/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/pojo/vo/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/AnnouncementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/AnnouncementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/service/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/FriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/service/FriendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/ItemImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/ItemImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/ReplyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/AnnouncementServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/AnnouncementServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/ChatServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/service/impl/ChatServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/FriendServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/service/impl/FriendServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/ItemImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/ItemImageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/ItemServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/ItemServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/java/com/xunhang/message/service/impl/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/ReplyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/ReplyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/service/impl/UserServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/utils/AliOssUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/utils/AliOssUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/utils/HttpClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/utils/HttpClientUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/utils/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xunhang/utils/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/utils/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/ AnnouncementMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/ChatMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/ChatMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/CommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/CommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/FriendMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/FriendMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/ItemImageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/ItemImageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/ItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/ItemMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/MessageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/MessageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/ReplyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/main/resources/com/xunhang/mapper/ReplyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xunhang/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xunhang/XunhangApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/xh-service/src/test/java/com/xunhang/XunhangApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\apache-maven-3.9.4\repository" />
+        <option name="userSettingsFile" value="F:\apache-maven-3.9.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2WKlE7C9LVMJ6XhBq4HvUWWc3yg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>18c09ea9-7673-47a0-996f-f20f599bc698</source-data-source-id>\n        <source-path>schema/&quot;xunhang&quot;</source-path>\n        <target-data-source-id>ee2f3ff1-4d9e-47c9-888d-c0f8fc0d0be9</target-data-source-id>\n        <target-path>schema/&quot;xunhang&quot;</target-path>\n      </schema-mapping-item>\n      <schema-mapping-item>\n        <source-data-source-id>ee2f3ff1-4d9e-47c9-888d-c0f8fc0d0be9</source-data-source-id>\n        <source-path>schema/&quot;xunhang&quot;</source-path>\n        <target-data-source-id>18c09ea9-7673-47a0-996f-f20f599bc698</target-data-source-id>\n        <target-path>schema/&quot;xunhang&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "last_opened_file_path": "F:/project/wechat found and lost/xunhang/xh-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41609195",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "spring.configuration.checksum": "e0739b7632f9faecea3e1aa740ab9d22",
+    "two.files.diff.last.used.file": "F:/project/wechat found and lost/xunhang/src/main/java/com/xunhang/utils/HttpUtils.java",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "redis"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.xunhang.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\project\wechat found and lost\xunhang\message-service\src\main\java\com\xunhang\message\common" />
+      <recent name="F:\project\wechat found and lost\xunhang\message-service\src\main\java\com\xunhang\message\config" />
+      <recent name="F:\project\wechat found and lost\xunhang\message-service\src\main\java\com\xunhang\message\common\constants" />
+      <recent name="F:\project\wechat found and lost\xunhang\xunhang-common\src\main\java\com\xunhang\common\domain" />
+      <recent name="F:\project\wechat found and lost\xunhang\message-service\src\main\java\com\xunhang\message\mapper" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\project\wechat found and lost\xunhang\xh-service" />
+      <recent name="F:\project\wechat found and lost\xunhang\xh-service\src" />
+      <recent name="F:\project\wechat found and lost\xunhang\message-service\src\main\java\com\xunhang\message\controller" />
+      <recent name="F:\project\wechat found and lost\xunhang\message-service\src\main\resources" />
+      <recent name="F:\project\wechat found and lost\xunhang\src\main\resources\com\xunhang\mapper" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.xunhang.service.impl" />
+      <recent name="com.xunhang.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xunhang.constant" />
+      <recent name="com.xunhang.handle" />
+      <recent name="com.xunhang.common" />
+      <recent name="com.xunhang.utils" />
+      <recent name="com.xunhang.config" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MessageServiceApplication">
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="ECS on Alibaba Cloud" type="ECS_RUN_CONFIGRATION" factoryName="Ecs configuration factory">
+      <option name="accountModel" />
+      <option name="accountModels">
+        <list>
+          <AccountModel>
+            <option name="ak" value="LTAI5tPXns89Y8ofY1vFS9XX" />
+            <option name="profileName" value="xunhang" />
+            <option name="secret" value="v11IzD1C58yNZK9shN3F9i3S7LIO7N" />
+            <option name="show" value="false" />
+          </AccountModel>
+        </list>
+      </option>
+      <option name="address" />
+      <option name="afterCommand" value="sh /root/sh/restart-xunhang.sh" />
+      <option name="alreadyReset" value="true" />
+      <option name="autoOpen" value="false" />
+      <option name="beforeCommand" value="" />
+      <option name="defaultTabIdx" value="0" />
+      <option name="ecsInstance">
+        <EcsInstance>
+          <option name="OSType" />
+          <option name="instanceId" />
+          <option name="instanceName" />
+          <option name="netType" />
+          <option name="privateIps" />
+          <option name="publicIps" />
+          <option name="regionId" />
+          <option name="tags" />
+        </EcsInstance>
+      </option>
+      <option name="ecsInstances">
+        <list>
+          <EcsInstance>
+            <option name="OSType" value="linux" />
+            <option name="instanceId" value="i-f8z6xc36jyvrqq8wq0vu" />
+            <option name="instanceName" value="iZf8z6xc36jyvrqq8wq0vuZ" />
+            <option name="netType" value="vpc" />
+            <option name="privateIps" value="172.31.245.216" />
+            <option name="publicIps" value="47.120.43.109" />
+            <option name="regionId" value="cn-heyuan" />
+            <option name="tags">
+              <list />
+            </option>
+          </EcsInstance>
+        </list>
+      </option>
+      <option name="hostIds" />
+      <option name="hostTagId" value="0" />
+      <option name="location" value="/root/springboot/xunhang" />
+      <option name="pathOrUrl" value="F:\project\wechat found and lost\xunhang\target\xunhang-0.0.1-SNAPSHOT.jar" />
+      <option name="tagId" value="0" />
+      <option name="terminalCommand" />
+      <option name="type" value="ECS" />
+      <option name="uploadType" value="MAVEN" />
+      <method v="2">
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/../xunhang\pom.xml" goal="clean install" />
+      </method>
+    </configuration>
+    <configuration name="ECS on Alibaba Cloud" type="ECS_RUN_CONFIGRATION" factoryName="Ecs configuration factory">
+      <option name="accountModel" />
+      <option name="accountModels">
+        <list>
+          <AccountModel>
+            <option name="ak" value="LTAI5tPXns89Y8ofY1vFS9XX" />
+            <option name="profileName" value="xunhang" />
+            <option name="secret" value="v11IzD1C58yNZK9shN3F9i3S7LIO7N" />
+            <option name="show" value="false" />
+          </AccountModel>
+        </list>
+      </option>
+      <option name="address" />
+      <option name="afterCommand" value="sh /root/sh/restart-xunhang.sh" />
+      <option name="alreadyReset" value="true" />
+      <option name="autoOpen" value="false" />
+      <option name="beforeCommand" value="" />
+      <option name="defaultTabIdx" value="0" />
+      <option name="ecsInstance">
+        <EcsInstance>
+          <option name="OSType" />
+          <option name="instanceId" />
+          <option name="instanceName" />
+          <option name="netType" />
+          <option name="privateIps" />
+          <option name="publicIps" />
+          <option name="regionId" />
+          <option name="tags" />
+        </EcsInstance>
+      </option>
+      <option name="ecsInstances">
+        <list>
+          <EcsInstance>
+            <option name="OSType" value="linux" />
+            <option name="instanceId" value="i-f8z6xc36jyvrqq8wq0vu" />
+            <option name="instanceName" value="iZf8z6xc36jyvrqq8wq0vuZ" />
+            <option name="netType" value="vpc" />
+            <option name="privateIps" value="172.31.245.216" />
+            <option name="publicIps" value="47.120.43.109" />
+            <option name="regionId" value="cn-heyuan" />
+            <option name="tags">
+              <list />
+            </option>
+          </EcsInstance>
+        </list>
+      </option>
+      <option name="hostIds" />
+      <option name="hostTagId" value="0" />
+      <option name="location" value="/root/springboot/xunhang" />
+      <option name="pathOrUrl" value="F:\project\wechat found and lost\xunhang\target\xunhang-0.0.1-SNAPSHOT.jar" />
+      <option name="tagId" value="0" />
+      <option name="terminalCommand" />
+      <option name="type" value="ECS" />
+      <option name="uploadType" value="MAVEN" />
+      <method v="2">
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/../xunhang\pom.xml" goal="clean install" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.pojo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.testDateUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="testDateUtil" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.testDateUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="testDateUtil" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.testHttp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.pojo.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="testHttp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.testHttp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.pojo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="testHttp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.testItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.pojo.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="testItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplicationTests.testItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xunhang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xunhang.pojo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xunhang" />
+      <option name="MAIN_CLASS_NAME" value="com.xunhang.XunhangApplicationTests" />
+      <option name="METHOD_NAME" value="testItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="message-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xunhang.message.MessageServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xunhang" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xunhang.XunhangApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XunhangApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xunhang" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xunhang.XunhangApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="xunhang" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="xunhang">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="xunhang:0.0.1" />
+          <option name="containerName" value="xunhang" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="8080" />
+                <option name="hostPort" value="8080" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="xunhang" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="xunhang">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="xunhang:0.0.1" />
+          <option name="containerName" value="xunhang" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="8080" />
+                <option name="hostPort" value="8080" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.xunhang" />
+        <item itemvalue="JUnit.XunhangApplicationTests.testHttp" />
+        <item itemvalue="JUnit.XunhangApplicationTests.testDateUtil" />
+        <item itemvalue="JUnit.XunhangApplicationTests.testItem" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\22477\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="57a69577-3193-4d62-916a-f5037eb9e65a" name="更改" comment="" />
+      <created>1696489038085</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696489038085</updated>
+      <workItem from="1696489039126" duration="1314000" />
+      <workItem from="1696490566323" duration="15565000" />
+      <workItem from="1696556471447" duration="13527000" />
+      <workItem from="1696572049152" duration="12131000" />
+      <workItem from="1696599441026" duration="2748000" />
+      <workItem from="1696663443639" duration="16958000" />
+      <workItem from="1696685329712" duration="1786000" />
+      <workItem from="1696818578767" duration="4337000" />
+      <workItem from="1696919018283" duration="597000" />
+      <workItem from="1696932771187" duration="790000" />
+      <workItem from="1697024072327" duration="793000" />
+      <workItem from="1697111189784" duration="132000" />
+      <workItem from="1697117014931" duration="1328000" />
+      <workItem from="1697371288651" duration="620000" />
+      <workItem from="1697445286140" duration="4491000" />
+      <workItem from="1697627666251" duration="1401000" />
+      <workItem from="1697629086323" duration="6103000" />
+      <workItem from="1697959536363" duration="8371000" />
+      <workItem from="1698055212580" duration="5489000" />
+      <workItem from="1698204140838" duration="709000" />
+      <workItem from="1698379609772" duration="9726000" />
+      <workItem from="1698466568249" duration="17633000" />
+      <workItem from="1698571568826" duration="3915000" />
+      <workItem from="1698633403352" duration="2689000" />
+      <workItem from="1698663533558" duration="4989000" />
+      <workItem from="1698802700815" duration="6132000" />
+      <workItem from="1698889417127" duration="1528000" />
+      <workItem from="1698928425662" duration="5630000" />
+      <workItem from="1698980012789" duration="15123000" />
+      <workItem from="1699067383662" duration="10323000" />
+      <workItem from="1699106611360" duration="631000" />
+      <workItem from="1699190907419" duration="1261000" />
+      <workItem from="1699238374380" duration="2416000" />
+      <workItem from="1699259840501" duration="2531000" />
+      <workItem from="1699279376188" duration="82000" />
+      <workItem from="1699327834997" duration="6441000" />
+      <workItem from="1699359794581" duration="929000" />
+      <workItem from="1699437946736" duration="7234000" />
+      <workItem from="1699446502105" duration="2052000" />
+      <workItem from="1699450570147" duration="2115000" />
+      <workItem from="1699524359580" duration="6018000" />
+      <workItem from="1699530399030" duration="8249000" />
+      <workItem from="1699583809897" duration="6397000" />
+      <workItem from="1699611082206" duration="9753000" />
+      <workItem from="1699668032950" duration="4562000" />
+      <workItem from="1699675129334" duration="8035000" />
+      <workItem from="1699687196537" duration="16482000" />
+      <workItem from="1699711339085" duration="539000" />
+      <workItem from="1699789958874" duration="2829000" />
+      <workItem from="1699844222659" duration="2985000" />
+      <workItem from="1699848137442" duration="2856000" />
+      <workItem from="1699867938676" duration="9351000" />
+      <workItem from="1699884251485" duration="674000" />
+      <workItem from="1699929418739" duration="228000" />
+      <workItem from="1699929661393" duration="126000" />
+      <workItem from="1699929801189" duration="635000" />
+      <workItem from="1699930446569" duration="1205000" />
+      <workItem from="1699931670611" duration="460000" />
+      <workItem from="1699932144737" duration="7257000" />
+      <workItem from="1699941376766" duration="10046000" />
+      <workItem from="1700016156726" duration="16483000" />
+      <workItem from="1700056631105" duration="620000" />
+      <workItem from="1700130035634" duration="2220000" />
+      <workItem from="1700285959581" duration="1417000" />
+      <workItem from="1700534247215" duration="1136000" />
+      <workItem from="1700535727775" duration="1133000" />
+      <workItem from="1702182173883" duration="2142000" />
+      <workItem from="1702291835582" duration="101000" />
+      <workItem from="1702543212691" duration="10000" />
+      <workItem from="1702543255696" duration="596000" />
+      <workItem from="1702632163372" duration="107000" />
+      <workItem from="1702632319961" duration="877000" />
+      <workItem from="1702633856649" duration="1773000" />
+      <workItem from="1702641330604" duration="623000" />
+      <workItem from="1702799725835" duration="1948000" />
+      <workItem from="1702802263180" duration="3885000" />
+      <workItem from="1702808024715" duration="168000" />
+      <workItem from="1702808213369" duration="465000" />
+      <workItem from="1702809755241" duration="2745000" />
+      <workItem from="1702812831196" duration="2245000" />
+      <workItem from="1702897847805" duration="2018000" />
+      <workItem from="1702970274562" duration="1620000" />
+      <workItem from="1702972930573" duration="1010000" />
+      <workItem from="1702973963044" duration="14882000" />
+      <workItem from="1703043750158" duration="7279000" />
+      <workItem from="1703057528561" duration="259000" />
+      <workItem from="1703057810243" duration="15941000" />
+      <workItem from="1703132760161" duration="18305000" />
+      <workItem from="1703216428109" duration="4159000" />
+      <workItem from="1706235065086" duration="524000" />
+      <workItem from="1706235610910" duration="954000" />
+      <workItem from="1706325509533" duration="168000" />
+      <workItem from="1706587444860" duration="3266000" />
+      <workItem from="1706671778765" duration="677000" />
+      <workItem from="1706672493133" duration="29000" />
+      <workItem from="1706672549003" duration="4251000" />
+      <workItem from="1706700760599" duration="589000" />
+      <workItem from="1707046974783" duration="594000" />
+      <workItem from="1707062954800" duration="599000" />
+      <workItem from="1707064249379" duration="180000" />
+      <workItem from="1707064465103" duration="598000" />
+      <workItem from="1707065897727" duration="73000" />
+      <workItem from="1707066002443" duration="598000" />
+      <workItem from="1707067215752" duration="477000" />
+      <workItem from="1707067763123" duration="1217000" />
+      <workItem from="1707239600212" duration="2852000" />
+      <workItem from="1707405677938" duration="588000" />
+      <workItem from="1707406320191" duration="1203000" />
+      <workItem from="1707420380089" duration="11440000" />
+      <workItem from="1707650758427" duration="8660000" />
+      <workItem from="1708173358840" duration="1323000" />
+      <workItem from="1708181121350" duration="2000" />
+      <workItem from="1709371630389" duration="1630000" />
+      <workItem from="1710907928258" duration="7000" />
+      <workItem from="1711004464393" duration="18000" />
+      <workItem from="1711160253690" duration="859000" />
+      <workItem from="1711162397679" duration="241000" />
+      <workItem from="1711197566231" duration="2898000" />
+      <workItem from="1711200492783" duration="113000" />
+      <workItem from="1711200635433" duration="13143000" />
+      <workItem from="1711330967226" duration="3101000" />
+      <workItem from="1711334104456" duration="80000" />
+      <workItem from="1711334241725" duration="28593000" />
+      <workItem from="1711501942120" duration="6660000" />
+      <workItem from="1711512321207" duration="42000" />
+      <workItem from="1711535886113" duration="1339000" />
+      <workItem from="1711629658500" duration="6000" />
+      <workItem from="1711716012459" duration="588000" />
+      <workItem from="1711775479324" duration="732000" />
+      <workItem from="1711806863283" duration="1795000" />
+      <workItem from="1711972233867" duration="594000" />
+      <workItem from="1712490944848" duration="20868000" />
+      <workItem from="1712671712456" duration="770000" />
+      <workItem from="1712715914607" duration="4273000" />
+      <workItem from="1712737113833" duration="598000" />
+      <workItem from="1712738027896" duration="12462000" />
+      <workItem from="1712996621799" duration="27000" />
+      <workItem from="1712996694596" duration="2927000" />
+      <workItem from="1713061776527" duration="1140000" />
+      <workItem from="1713273075419" duration="653000" />
+      <workItem from="1713274228281" duration="598000" />
+      <workItem from="1713274852301" duration="2721000" />
+      <workItem from="1713359611887" duration="2330000" />
+      <workItem from="1713790039623" duration="350000" />
+      <workItem from="1713790435655" duration="2063000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1699445974434</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699445974434</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init">
+      <option name="closed" value="true" />
+      <created>1699450929839</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699450929839</updated>
+    </task>
+    <task id="LOCAL-00003" summary="修改数据源">
+      <option name="closed" value="true" />
+      <created>1699451795597</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699451795597</updated>
+    </task>
+    <task id="LOCAL-00004" summary="websocket">
+      <option name="closed" value="true" />
+      <created>1699942561879</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699942561879</updated>
+    </task>
+    <task id="LOCAL-00005" summary="websocket">
+      <option name="closed" value="true" />
+      <created>1699942588627</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699942588627</updated>
+    </task>
+    <task id="LOCAL-00006" summary="111">
+      <option name="closed" value="true" />
+      <created>1702993893535</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702993893536</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修改代码规范">
+      <option name="closed" value="true" />
+      <created>1703147068886</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703147068886</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修改代码规范">
+      <option name="closed" value="true" />
+      <created>1703153189729</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1703153189729</updated>
+    </task>
+    <task id="LOCAL-00009" summary="完成">
+      <option name="closed" value="true" />
+      <created>1707735090618</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707735090618</updated>
+    </task>
+    <task id="LOCAL-00010" summary="基本聊天功能">
+      <option name="closed" value="true" />
+      <created>1712719853186</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712719853186</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.configurationType" implementationName="ECS_RUN_CONFIGRATION" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
+    <MESSAGE value="init" />
+    <MESSAGE value="修改数据源" />
+    <MESSAGE value="websocket" />
+    <MESSAGE value="111" />
+    <MESSAGE value="修改代码规范" />
+    <MESSAGE value="完成" />
+    <MESSAGE value="基本聊天功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本聊天功能" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/ChatServiceimpl.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/WebSocketController.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/WebSocketController.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java</url>
+          <line>297</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java</url>
+          <line>285</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/service/impl/UserServiceimpl.java</url>
+          <line>242</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/xh-service/src/test/java/com/xunhang/XunhangApplicationTests.java</url>
+          <line>14</line>
+          <properties class="com.xunhang.XunhangApplicationTests" method="test">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.xunhang.pojo.entity.ItemImage" memberName="itemId" />
+        <PinnedItemInfo parentTag="org.apache.tomcat.websocket.WsSession" memberName="queryString" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((WsSession)session).requestParameterMap" language="JAVA" custom="org.apache.tomcat.websocket.WsSession" />
+      </configuration>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/xh-service/src/main/java/com/xunhang/controller/user/WebSocketController.java" line="36">
+        <watch expression="((WebSocketController)this).rabbitTemplate" language="JAVA" custom="com.xunhang.controller.user.WebSocketController" />
+      </inline-watch>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

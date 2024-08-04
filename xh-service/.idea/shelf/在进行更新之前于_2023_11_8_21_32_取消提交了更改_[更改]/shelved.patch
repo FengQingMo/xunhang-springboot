@@ -1,0 +1,15 @@
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># 默认忽略的文件\r\n/shelf/\r\n/workspace.xml\r\n# 基于编辑器的 HTTP 客户端请求\r\n/httpRequests/\r\n# Datasource local storage ignored files\r\n/dataSources/\r\n/dataSources.local.xml\r\n
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+--- a/.idea/.gitignore	
++++ b/.idea/.gitignore	
+@@ -1,4 +1,6 @@
+ # 默认忽略的文件
++
++
+ /shelf/
+ /workspace.xml
+ # 基于编辑器的 HTTP 客户端请求

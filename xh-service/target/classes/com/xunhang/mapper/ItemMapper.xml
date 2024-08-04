@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.xunhang.mapper.ItemMapper">
+
+    <resultMap id="itemResultMap" type="com.xunhang.pojo.vo.ItemVO">
+        <id property="id" column="id" />
+        <result property="publisherId" column="publisher_id" />
+        <result property="description" column="description" />
+        <result property="location" column="location" />
+        <result property="date" column="date" />
+        <result property="claimerId" column="claimer_id" />
+        <result property="tag" column="tag" />
+        <result property="title" column="title" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+        <result property="isSuccess" column="is_success" />
+        <!-- 映射UserVO -->
+        <association property="userVO" javaType="com.xunhang.pojo.vo.UserVO">
+            <result property="nickname" column="nickname" />
+            <result property="headImage" column="head_image" />
+            <result property="headImageThumb" column="head_image_thumb" />
+            <result property="phone" column="phone"/>
+        </association>
+        <!-- 映射图片集合 -->
+        <collection property="images" javaType="java.util.List" ofType="java.lang.String"
+                    select="com.xunhang.mapper.ItemMapper.getItemImagesByItemId" column="{itemId=id}"/>
+    </resultMap>
+    <select id="getItemImagesByItemId" resultType="java.lang.String">
+            select image_url
+            from item_image
+            where item_id = #{itemId}
+    </select>
+    <select id="getItemByPublisherId" resultType="com.xunhang.pojo.entity.Item">
+        select * from item where publisher_id =#{publisherId} and category = #{category}
+    </select>
+    <select id="getHomeItem" resultType="com.xunhang.pojo.vo.ItemVO"  resultMap="itemResultMap" parameterType="com.xunhang.pojo.dto.ItemHomeDTO">
+        select
+        i.*,
+        u.nickname,
+        u.head_image,
+        u.head_image_thumb,
+        u.phone,
+        ii.image_url as imageUrl
+        FROM item i
+        left join user u on i.publisher_id = u.id
+        left join item_image ii on ii.item_id = i.id
+        <where>
+            <if test="itemHomeDTO.category!=null">
+                category = #{itemHomeDTO.category}
+            </if>
+            <if test="itemHomeDTO.tag!=null and itemHomeDTO.tag!=''">
+                and tag = #{itemHomeDTO.tag}
+            </if>
+            <if test="itemHomeDTO.date!=null and itemHomeDTO.date!=''">
+                and date = #{itemHomeDTO.date}
+            </if>
+            <if test="itemHomeDTO.text!=null and itemHomeDTO.text!=''">
+                and text like concat('%',#{itemHomeDTO.text},'%')
+            </if>
+        </where>
+        ORDER BY
+        i.create_time
+        LIMIT #{current},#{size}
+    </select>
+    <select id="countHomeItem" resultType="java.lang.Long" parameterType="com.xunhang.pojo.dto.ItemHomeDTO">
+        select count(*)
+        from item
+        <where>
+            <if test="itemHomeDTO.category!=null">
+                category = #{itemHomeDTO.category}
+            </if>
+            <if test="itemHomeDTO.tag!=null and itemHomeDTO.tag!= ''">
+                and tag = #{itemHomeDTO.tag}
+            </if>
+            <if test="itemHomeDTO.date!=null and itemHomeDTO.date!=''">
+                and date = #{itemHomeDTO.date}
+            </if>
+            <if test="itemHomeDTO.text!=null and itemHomeDTO.text!=''">
+                and text like concat('%',#{itemHomeDTO.text},'%')
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

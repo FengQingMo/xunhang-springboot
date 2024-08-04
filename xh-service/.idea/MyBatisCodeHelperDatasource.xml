@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="generateService" value="true" />
+        <option name="generateServiceInterface" value="true" />
+        <option name="javaMapperPackage" value="com.xunhang.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/src/main/java" />
+        <option name="javaModelPackage" value="com.xunhang.pojo.entity" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/src/main/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="xunhang" />
+        <option name="lombokAllArgConstructor" value="true" />
+        <option name="lombokBuilderAnnotation" value="true" />
+        <option name="lombokDataAnnotation" value="true" />
+        <option name="lombokNoArgsConstructor" value="true" />
+        <option name="mapperAnnotaion" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="xunhang">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.xunhang.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="javaModelPacakge" value="com.xunhang.pojo.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.xunhang.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="javaServicePackage" value="com.xunhang.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/src/main/java" />
+                  <option name="xmlPackage" value="com.xunhang.mapper" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="p3CComment" value="true" />
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="xunhang:chat">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Chat" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="xunhang:comment">
+              <value>
+                <TableGenerateConfig>
+                  <option name="deleteByPrimayKeyEnabled" value="false" />
+                  <option name="generatedKey" value="id" />
+                  <option name="insertMethodEnabled" value="false" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="Comment" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="selectByPrimaryKeyEnabled" value="false" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="updateByPrimaykeyEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="xunhang:friend">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="Friend" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="xunhang:item">
+              <value>
+                <TableGenerateConfig>
+                  <option name="deleteByPrimayKeyEnabled" value="false" />
+                  <option name="generatedKey" value="id" />
+                  <option name="insertMethodEnabled" value="false" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="Item" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="selectByPrimaryKeyEnabled" value="false" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="updateByPrimaykeyEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="xunhang:item_image">
+              <value>
+                <TableGenerateConfig>
+                  <option name="deleteByPrimayKeyEnabled" value="false" />
+                  <option name="generatedKey" value="id" />
+                  <option name="insertMethodEnabled" value="false" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="ItemImage" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="selectByPrimaryKeyEnabled" value="false" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="updateByPrimaykeyEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="xunhang:message">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Message" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="xunhang:reply">
+              <value>
+                <TableGenerateConfig>
+                  <option name="deleteByPrimayKeyEnabled" value="false" />
+                  <option name="generatedKey" value="id" />
+                  <option name="insertMethodEnabled" value="false" />
+                  <option name="insertSelectiveMethodEnabled" value="false" />
+                  <option name="javaModelName" value="Reply" />
+                  <option name="moduleName" value="xunhang" />
+                  <option name="selectByPrimaryKeyEnabled" value="false" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateByPrimaryKeySelectiveEnabled" value="false" />
+                  <option name="updateByPrimaykeyEnabled" value="false" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="useSwagger" value="true" />
+        <option name="userMybatisPlus" value="true" />
+        <option name="xmlMapperPackage" value="com.xunhang.mapper" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/src/main/resources" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

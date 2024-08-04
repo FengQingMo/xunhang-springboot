@@ -1,142 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xunhang</groupId>
-
     <artifactId>xunhang</artifactId>
-    <modelVersion>4.0.0</modelVersion>
-    <version>1.0</version>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>xh-service</module>
+        <module>xh-common</module>
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.7.12</version>
+        <relativePath/>
     </parent>
+
     <properties>
+         <!-- maven编译配置 -->
         <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 各jar包依赖版本 -->
+        <junit.version>4.12</junit.version>
+         <lombok.version>1.16.18</lombok.version>
+         <mysql.version>8.0.27</mysql.version>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <lombok.version>1.18.16</lombok.version>
+        <feign-okhttp.version>11.8</feign-okhttp.version>
+        <hutool.version>4.5.15</hutool.version>
+        <nacos.version>2021.1</nacos.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <fastjson.version>2.0.40</fastjson.version>
+        <mybatisPlus.version>3.4.2</mybatisPlus.version>
+        <redission.version>3.13.6</redission.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <security.version>2.2.5.RELEASE</security.version>
+        <minio.version>8.4.3</minio.version>
+        <spring-cloud-openfeign-version>3.1.2</spring-cloud-openfeign-version>
     </properties>
-    <dependencies>
+    <!-- 对依赖包进行管理 -->
+    <dependencyManagement>
+        <dependencies>
 
-        <!--redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <!--redis连接池-->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.7.15</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
-            <version>8.0.33</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!--		阿里云依赖-->
-        <!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.17.1</version>
-        </dependency>
-
-
-        <!--jjwt令牌依赖-->
-        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-        </dependency>
-        <!--fastJSON-->
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>2.0.40</version>
-        </dependency>
-        <!--mybati-splus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
-        <!--        hutoo-->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>4.5.15</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-commons</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>3.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson</artifactId>
-            <version>3.13.6</version>
-        </dependency>
-
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
+            <!--            knife4f-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!--           spring boot -->
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.2.RELEASE</version>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.7.12</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+              <!-- feign-->
+         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+             <version>${spring-cloud-openfeign-version}</version>
+        </dependency>
+            <!--         lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!--        hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--nacos 服务注册发现-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <!--jjwt令牌依赖-->
+            <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <!--fastJSON-->
+            <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--mybati-splus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisPlus.version}</version>
+            </dependency>
+            <!-- redission-->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redission.version}</version>
+            </dependency>
+             <!---更换feign的http客户端为okhttp，默认为httpclient-->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${feign-okhttp.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <!-- 开发环境 profile -->
+            <id>development</id>
+            <!-- 默认激活这个 profile -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <!-- 设置<properties></properties>、<dependencies></dependencies> -->
+        </profile>
+        <profile>
+            <!-- 测试环境 profile -->
+            <id>testing</id>
+            <!-- 设置<properties></properties>、<dependencies></dependencies> -->
+        </profile>
+        <profile>
+            <!-- 生产环境 profile -->
+            <id>production</id>
+            <!-- 设置<properties></properties>、<dependencies></dependencies> -->
+        </profile>
+    </profiles>
 
 </project>
