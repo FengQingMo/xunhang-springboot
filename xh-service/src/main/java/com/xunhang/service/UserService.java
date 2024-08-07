@@ -49,21 +49,14 @@ public interface UserService extends IService<User> {
     Result modifyPassword(ModifyPwdDTO dto);
 
     /**
-     *
-     *
      * @param openid
      * @return
      */
     UserLoginVO wxLogin(String openid);
 
-
-
     String getOpenid(String code);
 
-
     Result login(LoginDTO dto);
-
-
 
     /**
      * 获取 登录用户 信息

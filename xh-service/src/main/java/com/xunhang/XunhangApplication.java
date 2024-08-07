@@ -16,7 +16,6 @@ public class XunhangApplication {
         SpringApplication.run(XunhangApplication.class, args);
     }
 
-
     @Bean
     public RestTemplate restTemplate(ClientHttpRequestFactory factory) {
         return new RestTemplate(factory);

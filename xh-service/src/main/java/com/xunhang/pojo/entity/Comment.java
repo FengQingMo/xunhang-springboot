@@ -16,20 +16,20 @@ import java.time.LocalDateTime;
 public class Comment {
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     private Long userId;
 
-    private Integer replyUserId;
+    private Long replyUserId;
 
     private Long itemId;
 
     private String content;
 
-    private Integer parentId;
+    private Long parentId;
 
 
-    private Integer isDelete;
+    private Boolean isDelete;
 
 
     @TableField(fill = FieldFill.INSERT)

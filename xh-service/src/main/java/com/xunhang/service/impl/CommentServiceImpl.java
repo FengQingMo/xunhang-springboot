@@ -8,18 +8,15 @@ import com.xunhang.mapper.CommentMapper;
 import com.xunhang.pojo.dto.CommentDTO;
 import com.xunhang.pojo.dto.ReplyDTO;
 import com.xunhang.pojo.entity.Comment;
-import com.xunhang.pojo.entity.Reply;
 import com.xunhang.pojo.vo.CommentAdminVO;
 import com.xunhang.pojo.vo.CommentVO;
 import com.xunhang.pojo.vo.ConditionVO;
 import com.xunhang.pojo.vo.ReplyVO;
 import com.xunhang.service.CommentService;
-import com.xunhang.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +26,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> implements CommentService{
 
-    private final ReplyService replyService;
     private final CommentMapper commentMapper;
 
     @Override
@@ -54,20 +50,6 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
                 .collect(Collectors.groupingBy(ReplyVO::getParentId));
         commentVOList.forEach(item -> item.setReplyVOList(replyMap.get(item.getId())));
         return commentVOList;
-    }
-    @Override
-    public Boolean replyComment(ReplyDTO replyDTO) {
-        Reply reply = new Reply();
-        BeanUtil.copyProperties(replyDTO, reply);
-        reply.setTime(LocalDateTime.now());
-        reply.setPublisherId(UserUtil.getCurrentId());
-         replyService.save(reply);
-        return  true;
-    }
-
-    @Override
-    public List<ReplyVO> getRepliesByCommentId(Long commentId) {
-        return commentMapper.getRepliesByCommentIds(Collections.singletonList(commentId));
     }
 
     @SneakyThrows

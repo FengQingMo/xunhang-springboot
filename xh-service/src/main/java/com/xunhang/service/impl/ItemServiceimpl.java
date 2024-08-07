@@ -1,20 +1,21 @@
 package com.xunhang.service.impl;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.BooleanUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xunhang.common.result.PageResult;
 import com.xunhang.common.utils.UserUtil;
+import com.xunhang.mapper.ItemImageMapper;
 import com.xunhang.mapper.ItemMapper;
+import com.xunhang.mapper.UserMapper;
 import com.xunhang.pojo.dto.ItemHomeDTO;
 import com.xunhang.pojo.dto.ItemPublishDTO;
 import com.xunhang.pojo.dto.WxInfoDTO;
 import com.xunhang.pojo.entity.Item;
 import com.xunhang.pojo.entity.ItemImage;
+import com.xunhang.pojo.entity.User;
 import com.xunhang.pojo.vo.ItemVO;
-import com.xunhang.service.ItemImageService;
+import com.xunhang.pojo.vo.UserVO;
 import com.xunhang.service.ItemService;
+import com.xunhang.utils.BeanUtils;
 import com.xunhang.utils.PageUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -34,8 +35,11 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 public class ItemServiceimpl extends ServiceImpl<ItemMapper, Item> implements ItemService {
 
-    private final ItemImageService itemImageService;
     private final ItemMapper itemMapper;
+
+    private final ItemImageMapper itemImageMapper;
+
+    private final UserMapper userMapper;
 
     @Transactional
     @Override
@@ -57,9 +61,6 @@ public class ItemServiceimpl extends ServiceImpl<ItemMapper, Item> implements It
         int found = 0, lost = 0, unclaimed = 0;
         List<Item> list = query().eq("publisher_id", id).list();
         for (Item item : list) {
-            //log.info("item:{}",item);
-            if (item.getCategory() == null || item.getIsSuccess() == null)
-                continue;
             if (!item.getCategory()) {
                 if (!item.getIsSuccess()) {
                     lost += 1;
@@ -82,57 +83,41 @@ public class ItemServiceimpl extends ServiceImpl<ItemMapper, Item> implements It
     @Override
     public List<ItemVO> getMyItem(Boolean category) {
         Long id = UserUtil.getCurrentId();
-        LambdaQueryWrapper<Item> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Item::getPublisherId, id).eq(Item::getCategory, category).orderByDesc(Item::getUpdateTime);
-        List<Item> list = list(wrapper);
-        List<ItemVO> itemVOS = new ArrayList<ItemVO>();
-        for (Item item : list) {
-            ItemVO vo = new ItemVO();
-            BeanUtil.copyProperties(item, vo);
-            List<ItemImage> itemImages = itemImageService.query().eq("item_id", item.getId()).list();
-            List<String> images = new ArrayList<String>();
-            itemImages.forEach((itemImage -> images.add(itemImage.getImageUrl())));
-            vo.setImages(images);
-            itemVOS.add(vo);
-        }
+        List<ItemVO> itemVOS = itemMapper.getMyItem(id, category);
+        User user = userMapper.selectById(id);
+        UserVO userVO = BeanUtils.copyProperties(user, UserVO.class);
+        itemVOS.forEach(itemVO -> itemVO.setUserVO(userVO));
         return itemVOS;
     }
 
     @Override
     @Transactional
-    public Boolean publish(ItemPublishDTO itemPublishDTO) {
+    public void publish(ItemPublishDTO itemPublishDTO) {
         log.info("itemHomeDTO:" + itemPublishDTO);
-        Long id = UserUtil.getCurrentId();
+        Long userId = UserUtil.getCurrentId();
         //保存物品记录
-        Item item = new Item();
-        BeanUtil.copyProperties(itemPublishDTO, item);
-        item.setPublisherId(id);
+        Item item = BeanUtils.copyProperties(itemPublishDTO, Item.class);
+        item.setPublisherId(userId);
         item.setClaimerId(0L);
-        item.setIsSuccess(false);
         save(item);
         //保存图片
         Boolean ok = true;
         List<String> images = itemPublishDTO.getImages();
-        //if (CollectionUtil.isNotEmpty(images)) {
-        //    List<ItemImage> itemImages = new ArrayList<>();
-        //    for (String image : images) {
-        //        ItemImage itemImage = new ItemImage();
-        //        itemImage.setImageUrl(image);
-        //        itemImage.setItemId(item.getId());
-        //        itemImages.add(itemImage);
-        //    }
-        //    ok = itemImageService.saveBatch(itemImages);
-        //}
-        log.info("用户id为:" + id + "的用户发布了一条信息" + "物品信息为为" + item);
-        return BooleanUtil.isTrue(ok);
+        List<ItemImage> itemImageList = new ArrayList<>(images.size());
+        for (String image : images) {
+            ItemImage itemImage = new ItemImage(image, item.getId());
+            itemImageList.add(itemImage);
+        }
+        itemImageMapper.insertList(itemImageList);
+        log.info("用户id为:" + userId + "的用户发布了一条信息" + "物品信息为" + item);
     }
 
     @SneakyThrows
     @Override
     public PageResult<ItemVO> getHomeItem(ItemHomeDTO itemHomeDTO) {
         CompletableFuture<Long> asyncCount = CompletableFuture.supplyAsync(() -> itemMapper.countHomeItem(itemHomeDTO));
-        List<ItemVO> itemVOS = itemMapper.getHomeItem(PageUtil.getLimitCurrent(), PageUtil.getSize(),itemHomeDTO);
-        return new PageResult<>(asyncCount.get(),itemVOS);
+        List<ItemVO> itemVOS = itemMapper.getHomeItem(PageUtil.getLimitCurrent(), PageUtil.getSize(), itemHomeDTO);
+        return new PageResult<>(asyncCount.get(), itemVOS);
     }
 
     @Override

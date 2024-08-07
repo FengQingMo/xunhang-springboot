@@ -19,6 +19,7 @@
         <result property="createTime" column="create_time" />
         <result property="updateTime" column="update_time" />
         <result property="isSuccess" column="is_success" />
+        <result property="isDelete" column="is_delete" />
         <!-- 映射UserVO -->
         <association property="userVO" javaType="com.xunhang.pojo.vo.UserVO">
             <result property="nickname" column="nickname" />
@@ -60,7 +61,7 @@
                 and date = #{itemHomeDTO.date}
             </if>
             <if test="itemHomeDTO.text!=null and itemHomeDTO.text!=''">
-                and text like concat('%',#{itemHomeDTO.text},'%')
+                and (title like concat('%',#{itemHomeDTO.text},'%') or location like concat('%',#{itemHomeDTO.text},'%'))
             </if>
         </where>
         ORDER BY
@@ -81,9 +82,18 @@
                 and date = #{itemHomeDTO.date}
             </if>
             <if test="itemHomeDTO.text!=null and itemHomeDTO.text!=''">
-                and text like concat('%',#{itemHomeDTO.text},'%')
+                and (title like concat('%',#{itemHomeDTO.text},'%') or location like concat('%',#{itemHomeDTO.text},'%'))
             </if>
         </where>
+    </select>
+    <select id="getMyItem" resultType="com.xunhang.pojo.vo.ItemVO" resultMap="itemResultMap">
+        select i.*,
+               ii.image_url
+        from item i
+        left join item_image ii on i.id = ii.item_id
+        where i.publisher_id = #{id}
+          and i.category = #{category}
+        order by i.create_time
     </select>
 
 

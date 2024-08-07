@@ -9,4 +9,11 @@
     <result column="item_id" jdbcType="BIGINT" property="itemId" />
   </resultMap>
 
+  <insert id="insertList" parameterType="java.util.List" >
+        insert into item_image (image_url, item_id)
+        values
+        <foreach collection="itemImageList" item="item" separator=",">
+          (#{item.itemId},#{item.imageUrl})
+        </foreach>
+  </insert>
 </mapper>

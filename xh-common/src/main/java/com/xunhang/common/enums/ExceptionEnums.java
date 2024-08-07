@@ -29,7 +29,11 @@ public enum ExceptionEnums {
     AUTHENTICATION_ERROR(510, "用户名或密码错误"),
     FILE_STORAGE_ERROR(511,"文件存储服务异常，管理员正在修复，很抱歉为您带来不便！"),
 
-    USER_NOT_EXIST(512,"用户不存在" );
+
+    USER_NOT_EXIST(512,"用户不存在" ),
+    UPDATE_NOT_PERMIT(513,"不允许的修改操作"),
+    NOT_YOUR_FRIEND(514,"对方不是您的好友"),
+    ADDSELF_NOT_PERMIT(1000,"不允许添加自己为好友");
 
     private final Integer code;
     private final String message;

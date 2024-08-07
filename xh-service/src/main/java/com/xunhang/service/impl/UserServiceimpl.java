@@ -5,46 +5,38 @@ import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xunhang.common.enums.ExceptionEnums;
 import com.xunhang.common.enums.ResultCode;
 import com.xunhang.common.exception.GlobalException;
 import com.xunhang.common.properties.JwtProperties;
 import com.xunhang.common.properties.WeChatProperties;
-import com.xunhang.common.result.PageResult;
 import com.xunhang.common.result.Result;
 import com.xunhang.common.result.ResultUtils;
 import com.xunhang.common.utils.JwtUtil;
 import com.xunhang.common.utils.UserUtil;
 import com.xunhang.mapper.UserMapper;
-import com.xunhang.pojo.dto.ItemHomeDTO;
 import com.xunhang.pojo.dto.LoginDTO;
 import com.xunhang.pojo.dto.ModifyPwdDTO;
 import com.xunhang.pojo.dto.RegisterDTO;
-import com.xunhang.pojo.entity.Item;
-import com.xunhang.pojo.entity.ItemImage;
 import com.xunhang.pojo.entity.User;
-import com.xunhang.pojo.vo.ItemVO;
 import com.xunhang.pojo.vo.LoginVO;
 import com.xunhang.pojo.vo.UserLoginVO;
 import com.xunhang.pojo.vo.UserVO;
-import com.xunhang.service.*;
+import com.xunhang.service.UserService;
 import com.xunhang.session.IMSessionInfo;
 import com.xunhang.utils.HttpClientUtil;
-import com.xunhang.utils.RedisUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.stream.Collectors;
 
 import static com.xunhang.common.constant.RedisConstants.*;
 import static com.xunhang.common.enums.ResultCode.OLD_PASSWORD_ERROR;
@@ -55,22 +47,21 @@ import static com.xunhang.common.enums.ResultCode.OLD_PASSWORD_ERROR;
 public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     public static final String WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session";
+
     //读写锁控制大厅物品缓存读写
     private final ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
-    private final String[] str = {"https://xunhang.oss-cn-beijing.aliyuncs.com/avatar/default_avatar/avatar1.jpg", "https://xunhang.oss-cn-beijing.aliyuncs.com/avatar/default_avatar/avatar2.jpg", "https://xunhang.oss-cn-beijing.aliyuncs.com/avatar/default_avatar/avatar3.jpg"};
+
+    private final String[] str = {"https://minio.fengqingmo.top/blog/aurora/config/ecd9631d396bb0e8754d399cef6377c8.jpg"};
+
     private final PasswordEncoder passwordEncoder;
-    private final RedisUtil redisUtil;
+
     private final StringRedisTemplate stringRedisTemplate;
+
     private final JwtProperties jwtProperties;
-    //@Autowired
-    //private RabbitTemplate rabbitTemplate;
+
     private final UserMapper userMapper;
-    private final ItemService itemService;
-    private final CommentService commentService;
-    private final ReplyService replyService;
-    private final ItemImageService itemImageService;
+
     private final WeChatProperties weChatProperties;
-    private final FileService fileService;
 
     @Override
     public User getUserByOpenid(String openid) {
@@ -99,7 +90,7 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result register(RegisterDTO dto) {
-        User user = userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername,dto.getUsername()));
+        User user = userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername, dto.getUsername()));
         if (null != user) {
             return ResultUtils.error(ResultCode.USERNAME_ALREADY_REGISTER);
         }
@@ -167,92 +158,6 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
         return jsonObject.getString("openid");
     }
 
-
-
-
-
-    private PageResult getHomeItemByDB(ItemHomeDTO itemHomeDTO) {
-        String text = itemHomeDTO.getText();
-        Boolean category = itemHomeDTO.getCategory();
-        String tag = itemHomeDTO.getTag();
-        List<ItemVO> itemVOS = new ArrayList<>();
-        Page<Item> page = itemService.query().eq(itemHomeDTO.getTag() != null, "tag", tag).eq("category", category).like(itemHomeDTO.getText() != null, "title", text).page(new Page<>(itemHomeDTO.getCurrent(), itemHomeDTO.getSize()));
-        List<Item> items = page.getRecords();
-        for (Item item : items) {
-            log.info("item:{}", item);
-            ItemVO itemVO = new ItemVO();
-            BeanUtil.copyProperties(item, itemVO);
-            //获取物品对应图片
-            List<String> images = itemImageService.listObjs(Wrappers.<ItemImage>lambdaQuery().eq(ItemImage::getItemId, item.getId()).select(ItemImage::getImageUrl), obj -> (String) obj // 映射成 String 类型
-            );
-            User user = getById(item.getPublisherId());
-            UserVO userVO = new UserVO();
-            BeanUtil.copyProperties(user, userVO);
-            itemVO.setUserVO(userVO);
-            itemVO.setImages(images);
-            itemVOS.add(itemVO);
-        }
-        rebuilRedisCacheAsync(itemVOS, category);
-        PageResult pageResult = new PageResult();
-        pageResult.setRecords(itemVOS);
-        pageResult.setTotal(page.getTotal());
-        return pageResult;
-    }
-
-    /**
-     * 重建首页物品缓存(已弃用）
-     *
-     * @param itemVOS
-     * @param category
-     */
-    @Async
-    protected void rebuilRedisCacheAsync(List<ItemVO> itemVOS, Boolean category) {
-        boolean lock = readWriteLock.writeLock().tryLock();
-        if (lock) {
-            try {
-                itemVOS.forEach(itemVO -> {
-                    Long id = itemVO.getId();
-                    stringRedisTemplate.opsForZSet().add(IDS_ZSET_KEY + category, String.valueOf(id), id);
-                    String jsonStr = JSONUtil.toJsonStr(itemVO);
-                    stringRedisTemplate.opsForValue().set(ITEM_KEY + id, JSONUtil.toJsonStr(itemVO));
-                });
-            } finally {
-                readWriteLock.writeLock().unlock();
-            }
-        }
-    }
-
-    private List<ItemVO> getItemByRedis(Boolean category, Integer index, Integer count) {
-        // 构造Redis缓存键
-        String cacheKey = IDS_ZSET_KEY + category;
-        int start = (index - 1) * count;
-        int end = start + count - 1;
-        // 尝试从Redis获取数据
-        List<ItemVO> itemList = new ArrayList<ItemVO>();
-        readWriteLock.readLock().lock();
-        try {
-            List<Integer> ids = Objects.requireNonNull(stringRedisTemplate.opsForZSet().range(cacheKey, start, end)).stream().map(Integer::valueOf).collect(Collectors.toList());
-            List<String> idList = ids.stream().map(id -> ITEM_KEY + id).collect(Collectors.toList());
-            List<String> items = stringRedisTemplate.opsForValue().multiGet(idList);
-            itemList = new ArrayList<>();
-            if (items != null) {
-                itemList = items.stream().map(item -> JSONUtil.toBean(item, ItemVO.class)).collect(Collectors.toList());
-            }
-        } finally {
-            readWriteLock.readLock().unlock();
-        }
-        return itemList;
-    }
-
-
-
-
-
-
-
-
-
-
     @Override
     public Result login(LoginDTO dto) {
         String username = dto.getUsername();
@@ -263,7 +168,7 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
             return ResultUtils.error(408, "用户已被锁定，请" + LOGIN_LOCK_TTL + "分钟稍后再试或联系管理员解锁");
         }
         //1.获得用户信息
-        User user = userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername,dto.getUsername()));
+        User user = userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername, dto.getUsername()));
         if (null == user) {
             return ResultUtils.error(ResultCode.USERNAME_NOT_EXIST);
         }
@@ -296,15 +201,11 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
         stringRedisTemplate.expire(key, LOGIN_TIMES_TTL, TimeUnit.MINUTES);
     }
 
-
-
-
-
     @Override
     public UserVO getSelf() {
         Long id = UserUtil.getCurrentId();
         User user = getById(id);
-        if(user == null){
+        if (user == null) {
             throw new GlobalException(ExceptionEnums.USER_NOT_EXIST);
         }
         UserVO userVO = new UserVO();

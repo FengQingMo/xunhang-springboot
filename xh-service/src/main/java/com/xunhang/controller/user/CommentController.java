@@ -3,16 +3,15 @@ package com.xunhang.controller.user;
 import com.xunhang.common.result.Result;
 import com.xunhang.common.result.ResultUtils;
 import com.xunhang.pojo.dto.CommentDTO;
-import com.xunhang.pojo.dto.ReplyDTO;
 import com.xunhang.pojo.vo.CommentVO;
 import com.xunhang.pojo.vo.ConditionVO;
-import com.xunhang.pojo.vo.ReplyVO;
 import com.xunhang.service.CommentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -42,25 +41,16 @@ public class CommentController {
      */
     @PostMapping("/publishComment")
     @ApiOperation("发布评论")
-    public Result publishComment(@RequestBody CommentDTO commentDTO) {
+    public Result publishComment(@Valid @RequestBody CommentDTO commentDTO) {
         commentService.saveComment(commentDTO);
         return ResultUtils.success("发布评论成功");
     }
 
-    /**
-     * 回复评论
-     */
-    @PostMapping("/replyComment")
-    @ApiOperation("回复评论")
-    public Result replyComment(@RequestBody ReplyDTO replyDTO) {
-        return ResultUtils.success(commentService.replyComment(replyDTO));
-    }
-
-    @ApiOperation(value = "根据commentId获取回复")
-    @GetMapping("/comments/{commentId}/replies")
-    public Result<List<ReplyVO>> getRepliesByCommentId(@PathVariable("commentId") Long commentId) {
-        return ResultUtils.success(commentService.getRepliesByCommentId(commentId));
-    }
+    //@ApiOperation(value = "根据commentId获取回复")
+    //@GetMapping("/comments/{commentId}/replies")
+    //public Result<List<ReplyVO>> getRepliesByCommentId(@PathVariable("commentId") Long commentId) {
+    //    //return ResultUtils.success(commentService.getRepliesByCommentId(commentId));
+    //}
 
     @ApiOperation(value = "查询后台评论")
     @GetMapping("/admin/comments")

@@ -3,15 +3,12 @@ server:
 spring:
   application:
     name: xunhang-service
-  #  cloud:
-  #    nacos:
-  #      server-addr: 121.41.27.33:8848
-  #      discovery:
-  #        group: xunhang
+  cache:
+    type: redis
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #    url: jdbc:mysql://localhost:3306/xunhang
-    url: jdbc:mysql://101.35.223.149:3306/xunhang
+    url: jdbc:mysql://121.41.27.33:3306/xunhang
     username: root
     password: ckc531213
   servlet:
@@ -20,7 +17,7 @@ spring:
       max-request-size: 100MB
       enabled: true
   redis:
-    host: 116.198.233.46
+    host: 121.41.27.33
     port: 6379
     password: ckc531213
     lettuce:
@@ -45,21 +42,23 @@ spring:
 
 
 mybatis-plus:
-  type-aliases-package: com.xunhang.pojo
+  global-config:
+    db-config:
+      logic-delete-field: isDelete  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  type-aliases-package: com.xunhang.pojo.entity
   mapper-locations: "classpath*:/mapper/**/*.xml"
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 minio:
-  endpoint: http://116.198.233.46:9000 #内网地址
-  public: http://116.198.233.46:9000  #外网访问地址
+  endpoint: http://121.41.27.33:9001 #内网地址
+  public: http://121.41.27.33:9001  #外网访问地址
   accessKey: root
   secretKey: ckc531213
   bucketName: xunhang
-  imagePath: image
-  filePath: file
-  videoPath: video
   maxImageSize: 5242880
   maxnFileSize: 5242880 # 5 * 1024 * 1024
 
@@ -76,9 +75,8 @@ xunhang:
     user-token-name: authentication
     refresh-token-secret: IKDiqVmn0VFU
     refresh-token-expire-in: 604800 #7天
-
   alioss:
-    access-key LTAI5tLmD6fA9X52AZcp1XhG
+    access-key: LTAI5tLmD6fA9X52AZcp1XhG
     endpoint: oss-cn-beijing.aliyuncs.com
     access-key-secret: txaI5kUqbWtV8cCMc1we3idGpDHI7d
     bucket-name: xunhang

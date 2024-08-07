@@ -19,4 +19,6 @@ public interface ItemMapper extends BaseMapper<Item> {
     Long countHomeItem(@Param("itemHomeDTO") ItemHomeDTO itemHomeDTO);
 
     List<String> getItemImagesByItemId(@Param("itemId") String itemId);
+
+    List<ItemVO> getMyItem(@Param("id") Long id, @Param("category") Boolean category);
 }

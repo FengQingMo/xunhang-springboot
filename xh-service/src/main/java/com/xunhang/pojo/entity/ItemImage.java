@@ -4,14 +4,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@ApiModel(value="com-xunhang-pojo-entity-ItemImage")
 @Data
 @Builder
 @AllArgsConstructor
@@ -35,4 +33,9 @@ public class ItemImage {
     public static final String COL_IMAGE_URL = "image_url";
 
     public static final String COL_ITEM_ID = "item_id";
+
+    public ItemImage(String imageUrl, Long itemId) {
+        this.imageUrl = imageUrl;
+        this.itemId = itemId;
+    }
 }

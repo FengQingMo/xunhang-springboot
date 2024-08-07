@@ -27,7 +27,7 @@ public interface ItemService extends IService<Item> {
     /**
      * 发布物品信息
      */
-    Boolean publish(ItemPublishDTO itemPublishDTO);
+    void publish(ItemPublishDTO itemPublishDTO);
 
     /**
      * 获取首页物品信息
