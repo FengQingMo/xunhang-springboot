@@ -8,7 +8,7 @@
 
 前端地址
 
-[xunhang-uni: 寻航前端 (gitee.com)](https://gitee.com/the-wind-is-clear-and-silent/xunhang-uni/blob/master/README.md)
+[xunhang-uni: 寻航前端 (gitee.com)](https://gitee.com/the-wind-is-clear-and-silent/xunhang-uni)
 
 ## 效果图
 
