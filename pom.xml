@@ -20,7 +20,7 @@
     </parent>
 
     <properties>
-         <!-- maven编译配置 -->
+        <!-- maven编译配置 -->
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -30,81 +30,53 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- 各jar包依赖版本 -->
         <junit.version>4.12</junit.version>
-         <lombok.version>1.16.18</lombok.version>
-         <mysql.version>8.0.27</mysql.version>
-        <spring-cloud.version>2021.0.3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <lombok.version>1.16.18</lombok.version>
         <lombok.version>1.18.16</lombok.version>
-        <feign-okhttp.version>11.8</feign-okhttp.version>
         <hutool.version>4.5.15</hutool.version>
-        <nacos.version>2021.1</nacos.version>
         <jjwt.version>0.9.1</jjwt.version>
         <fastjson.version>2.0.40</fastjson.version>
         <mybatisPlus.version>3.4.2</mybatisPlus.version>
-        <redission.version>3.13.6</redission.version>
         <knife4j.version>3.0.2</knife4j.version>
         <security.version>2.2.5.RELEASE</security.version>
         <minio.version>8.4.3</minio.version>
-        <spring-cloud-openfeign-version>3.1.2</spring-cloud-openfeign-version>
+        <spring-boot.version>2.7.12</spring-boot.version>
+        <mysql.version>8.0.33</mysql.version>
     </properties>
     <!-- 对依赖包进行管理 -->
     <dependencyManagement>
         <dependencies>
-
-            <!--            knife4f-->
+            <!--knife4f-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
-            <!--           spring boot -->
+            <!-- spring boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.7.12</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--spring cloud-->
+            <!--mysql驱动-->
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql.version}</version>
             </dependency>
-            <!--spring cloud alibaba-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-              <!-- feign-->
-         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-             <version>${spring-cloud-openfeign-version}</version>
-        </dependency>
-            <!--         lombok-->
+            <!-- lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-            <!--        hutool-->
+            <!-- hutool -->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-            <!--nacos 服务注册发现-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>${nacos.version}</version>
             </dependency>
             <!--jjwt令牌依赖-->
             <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
@@ -126,41 +98,6 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatisPlus.version}</version>
             </dependency>
-            <!-- redission-->
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson</artifactId>
-                <version>${redission.version}</version>
-            </dependency>
-             <!---更换feign的http客户端为okhttp，默认为httpclient-->
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-okhttp</artifactId>
-                <version>${feign-okhttp.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <profiles>
-        <profile>
-            <!-- 开发环境 profile -->
-            <id>development</id>
-            <!-- 默认激活这个 profile -->
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <!-- 设置<properties></properties>、<dependencies></dependencies> -->
-        </profile>
-        <profile>
-            <!-- 测试环境 profile -->
-            <id>testing</id>
-            <!-- 设置<properties></properties>、<dependencies></dependencies> -->
-        </profile>
-        <profile>
-            <!-- 生产环境 profile -->
-            <id>production</id>
-            <!-- 设置<properties></properties>、<dependencies></dependencies> -->
-        </profile>
-    </profiles>
-
 </project>
