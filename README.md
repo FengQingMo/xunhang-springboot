@@ -8,9 +8,15 @@
 
 ## 效果图
 
-![首页](../../../笔记/typora/note/java系列/images/README/首页.png)
+https://minio.fengqingmo.top/xunhang/headImage/20240807/1723038033829.png
 
 ![大厅](../../../笔记/typora/note/java系列/images/README/大厅.png)
+
+
+
+https://minio.fengqingmo.top/xunhang/headImage/20240807/1723038063410.png
+
+
 
 ## 后端框架
 
