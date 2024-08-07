@@ -10,16 +10,16 @@ spring:
     #    url: jdbc:mysql://localhost:3306/xunhang
     url: jdbc:mysql://121.41.27.33:3306/xunhang
     username: root
-    password: ckc531213
+    password: mysql密码
   servlet:
     multipart:
       file-size-threshold: 10MB
       max-request-size: 100MB
       enabled: true
   redis:
-    host: 121.41.27.33
+    host: redisip
     port: 6379
-    password: ckc531213
+    password: redis密码
     lettuce:
       pool:
         max-active: 10
@@ -54,32 +54,12 @@ mybatis-plus:
     cache-enabled: false
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 minio:
-  endpoint: http://121.41.27.33:9001 #内网地址
-  public: http://121.41.27.33:9001  #外网访问地址
+  endpoint: https://minio.fengqingmo.top #内网地址
+  public: https://minio.fengqingmo.top  #外网访问地址
   accessKey: root
-  secretKey: ckc531213
+  secretKey: minio密码
   bucketName: xunhang
   maxImageSize: 5242880
   maxnFileSize: 5242880 # 5 * 1024 * 1024
 
-xunhang:
-  jwt:
-    # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: MIIBIjANBgkq
-    # 设置jwt过期时间
-    admin-ttl: 5184000000
-    # 设置前端传递过来的令牌名称
-    admin-token-name: token
-    user-secret-key: MIIBIjANBgkq
-    user-ttl: 5184000000
-    user-token-name: authentication
-    refresh-token-secret: IKDiqVmn0VFU
-    refresh-token-expire-in: 604800 #7天
-  alioss:
-    access-key: key
-    endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-secret: 密码
-    bucket-name: xunhang
-  wechat:
-    appid: appid
-    secret: 密码
+
