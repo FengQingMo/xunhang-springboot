@@ -4,7 +4,7 @@ import com.xunhang.common.result.Result;
 import com.xunhang.common.result.ResultUtils;
 import com.xunhang.pojo.dto.PrivateMessageDTO;
 import com.xunhang.pojo.vo.PrivateMessageVO;
-import com.xunhang.service.IPrivateMessageService;
+import com.xunhang.service.PrivateMessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PrivateMessageController {
 
-    private final IPrivateMessageService privateMessageService;
+    private final PrivateMessageService privateMessageService;
 
     @PostMapping("/send")
     @ApiOperation(value = "发送消息", notes = "发送私聊消息")

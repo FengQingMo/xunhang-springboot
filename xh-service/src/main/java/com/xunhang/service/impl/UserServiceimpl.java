@@ -29,7 +29,7 @@ import com.xunhang.pojo.vo.LoginVO;
 import com.xunhang.pojo.vo.OnlineTerminalVO;
 import com.xunhang.pojo.vo.UserLoginVO;
 import com.xunhang.pojo.vo.UserVO;
-import com.xunhang.service.IFriendService;
+import com.xunhang.service.FriendService;
 import com.xunhang.service.UserService;
 import com.xunhang.session.IMSessionInfo;
 import com.xunhang.utils.BeanUtils;
@@ -43,7 +43,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
 
 import static com.xunhang.common.constant.RedisConstants.*;
@@ -56,9 +55,6 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
 
     public static final String WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session";
 
-    //读写锁控制大厅物品缓存读写
-    private final ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
-
     private final String[] str = {"https://minio.fengqingmo.top/blog/aurora/config/ecd9631d396bb0e8754d399cef6377c8.jpg"};
 
     private final PasswordEncoder passwordEncoder;
@@ -70,6 +66,11 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
     private final UserMapper userMapper;
 
     private final WeChatProperties weChatProperties;
+
+    /****************** im 相关 ****************/
+    private final IMClient imClient;
+
+    private final FriendService friendService;
 
     @Override
     public User getUserByOpenid(String openid) {
@@ -198,7 +199,7 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
         UserVO userVO = new UserVO();
         BeanUtil.copyProperties(user, userVO);
         vo.setUserVO(userVO);
-        //3.2 删除key
+        //3.2 删除登录次数key
         stringRedisTemplate.delete(loginTimesKey);
         return Result.success(vo);
     }
@@ -221,10 +222,6 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
         return userVO;
     }
 
-
-    /****************** im 相关 ****************/
-    private final IMClient imClient;
-    private final IFriendService friendService;
     @Override
     public User findUserByUserName(String username) {
         LambdaQueryWrapper<User> queryWrapper = Wrappers.lambdaQuery();
@@ -253,14 +250,6 @@ public class UserServiceimpl extends ServiceImpl<UserMapper, User> implements Us
             }
             friendService.updateBatchById(friends);
         }
-        //// 更新群聊中的头像
-        //if (!user.getHeadImageThumb().equals(vo.getHeadImageThumb())) {
-        //    List<GroupMember> members = groupMemberService.findByUserId(session.getUserId());
-        //    for (GroupMember member : members) {
-        //        member.setHeadImage(vo.getHeadImageThumb());
-        //    }
-        //    groupMemberService.updateBatchById(members);
-        //}
         // 更新用户信息
         user.setNickname(vo.getNickname());
         user.setHeadImage(vo.getHeadImage());

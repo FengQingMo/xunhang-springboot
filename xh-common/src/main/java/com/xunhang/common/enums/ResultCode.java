@@ -22,7 +22,8 @@ public enum ResultCode {
     OLD_PASSWORD_ERROR(602,"旧密码不正确"),
     USERNAME_ALREADY_REGISTER(603, "该用户名已注册"),
     XSS_PARAM_ERROR(604, "请不要输入非法内容"),
-    FILE_UPLOAD_ERROR(605,"文件上传失败");
+    FILE_UPLOAD_ERROR(605,"文件上传失败"),
+    FILE_TOO_LARGE(606,"文件太大" );
 
     private final int code;
     private final String msg;

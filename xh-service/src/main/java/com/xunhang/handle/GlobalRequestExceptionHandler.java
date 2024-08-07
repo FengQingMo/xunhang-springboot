@@ -1,10 +1,13 @@
 package com.xunhang.handle;
 
 
+import com.xunhang.common.enums.ResultCode;
 import com.xunhang.common.result.Result;
+import com.xunhang.common.result.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.ClientAbortException;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AccountExpiredException;
@@ -170,5 +173,10 @@ public class GlobalRequestExceptionHandler {
     public Result handleDuplicateKeyException(DuplicateKeyException e) {
         log.error(e.getMessage(), e);
         return Result.error("数据库中已存在该记录");
+    }
+    /*************************************************文件异常类*****************************************************/
+    @ExceptionHandler(FileSizeLimitExceededException.class)
+    public Result handleFileSizeLimitExceededException(FileSizeLimitExceededException e){
+        return ResultUtils.error(ResultCode.FILE_TOO_LARGE);
     }
 }

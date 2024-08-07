@@ -5,7 +5,7 @@ import com.xunhang.common.result.ResultUtils;
 import com.xunhang.common.utils.UserUtil;
 import com.xunhang.pojo.entity.Friend;
 import com.xunhang.pojo.vo.FriendVO;
-import com.xunhang.service.IFriendService;
+import com.xunhang.service.FriendService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FriendController {
 
-    private final IFriendService friendService;
+    private final FriendService friendService;
 
     @GetMapping("/list")
     @ApiOperation(value = "好友列表", notes = "获取好友列表")

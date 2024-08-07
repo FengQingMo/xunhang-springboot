@@ -13,7 +13,7 @@
         insert into item_image (image_url, item_id)
         values
         <foreach collection="itemImageList" item="item" separator=",">
-          (#{item.itemId},#{item.imageUrl})
+          (#{item.imageUrl},#{item.itemId})
         </foreach>
   </insert>
 </mapper>

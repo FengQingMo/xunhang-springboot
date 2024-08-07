@@ -11,7 +11,7 @@ import com.xunhang.mapper.UserMapper;
 import com.xunhang.pojo.entity.Friend;
 import com.xunhang.pojo.entity.User;
 import com.xunhang.pojo.vo.FriendVO;
-import com.xunhang.service.IFriendService;
+import com.xunhang.service.FriendService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.framework.AopContext;
@@ -27,7 +27,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @CacheConfig(cacheNames = RedisKey.IM_CACHE_FRIEND)
-public class FriendServiceImpl extends ServiceImpl<FriendMapper, Friend> implements IFriendService {
+public class FriendServiceImpl extends ServiceImpl<FriendMapper, Friend> implements FriendService {
 
     private final UserMapper userMapper;
 

@@ -49,8 +49,8 @@ public class ItemController {
      *
      * @param itemPublishDTO
      */
-    @PostMapping("/publish")
-    @ApiOperation(value = "发布失物")
+    @PostMapping("/publishItem")
+    @ApiOperation(value = "发布物品信息")
     public Result publish(@RequestBody @Valid ItemPublishDTO itemPublishDTO) {
         itemService.publish(itemPublishDTO);
         return ResultUtils.success("发布成功");

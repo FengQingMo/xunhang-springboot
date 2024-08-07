@@ -101,7 +101,6 @@ public class ItemServiceimpl extends ServiceImpl<ItemMapper, Item> implements It
         item.setClaimerId(0L);
         save(item);
         //保存图片
-        Boolean ok = true;
         List<String> images = itemPublishDTO.getImages();
         List<ItemImage> itemImageList = new ArrayList<>(images.size());
         for (String image : images) {

@@ -11,7 +11,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.util.List;
@@ -38,20 +37,11 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .excludePathPatterns("/login/**")
                 .excludePathPatterns("/refreshToken")
                 .excludePathPatterns("/register")
-                .excludePathPatterns("/announcement");
+                .excludePathPatterns("/announcement")
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**","/favicon.ico","/error");
     }
 
-    /**
-     * 设置静态资源映射
-     *
-     * @param registry
-     */
-    @Override
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
-        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
-    }
+
 
     /**
      * 扩展Spring Mvc框架的消息转换器

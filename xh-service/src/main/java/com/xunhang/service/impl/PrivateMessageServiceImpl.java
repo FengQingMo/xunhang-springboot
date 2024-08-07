@@ -21,8 +21,8 @@ import com.xunhang.pojo.dto.PrivateMessageDTO;
 import com.xunhang.pojo.entity.Friend;
 import com.xunhang.pojo.entity.PrivateMessage;
 import com.xunhang.pojo.vo.PrivateMessageVO;
-import com.xunhang.service.IFriendService;
-import com.xunhang.service.IPrivateMessageService;
+import com.xunhang.service.FriendService;
+import com.xunhang.service.PrivateMessageService;
 import com.xunhang.utils.BeanUtils;
 import com.xunhang.utils.SensitiveFilterUtil;
 import lombok.RequiredArgsConstructor;
@@ -37,9 +37,9 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class PrivateMessageServiceImpl extends ServiceImpl<PrivateMessageMapper, PrivateMessage> implements IPrivateMessageService {
+public class PrivateMessageServiceImpl extends ServiceImpl<PrivateMessageMapper, PrivateMessage> implements PrivateMessageService {
 
-    private final IFriendService friendService;
+    private final FriendService friendService;
 
     private final IMClient imClient;
 
