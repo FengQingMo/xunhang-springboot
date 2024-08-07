@@ -6,6 +6,7 @@ import com.xunhang.common.result.Result;
 import com.xunhang.common.result.ResultUtils;
 import com.xunhang.pojo.dto.ModifyPwdDTO;
 import com.xunhang.pojo.entity.User;
+import com.xunhang.pojo.vo.OnlineTerminalVO;
 import com.xunhang.pojo.vo.UserVO;
 import com.xunhang.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 /**
  * 用户控制器
@@ -73,6 +76,30 @@ public class UserController {
         }
         return ResultUtils.success(openid);
     }
+    /********************* im相关 **********************/
+    @GetMapping("/terminal/online")
+    @ApiOperation(value = "判断用户哪个终端在线", notes = "返回在线的用户id的终端集合")
+    public Result<List<OnlineTerminalVO>> getOnlineTerminal(@NotEmpty @RequestParam("userIds") String userIds) {
+        return ResultUtils.success(userService.getOnlineTerminals(userIds));
+    }
 
 
+    @GetMapping("/find/{id}")
+    @ApiOperation(value = "查找用户", notes = "根据id查找用户")
+    public Result<UserVO> findById(@NotEmpty @PathVariable("id") Long id) {
+        return ResultUtils.success(userService.findUserById(id));
+    }
+
+    @PutMapping("/update")
+    @ApiOperation(value = "修改用户信息", notes = "修改用户信息，仅允许修改登录用户信息")
+    public Result update(@Valid @RequestBody UserVO vo) {
+        userService.update(vo);
+        return ResultUtils.success();
+    }
+
+    @GetMapping("/findByName")
+    @ApiOperation(value = "查找用户", notes = "根据用户名或昵称查找用户")
+    public Result<List<UserVO>> findByName(@RequestParam("name") String name) {
+        return ResultUtils.success(userService.findUserByName(name));
+    }
 }

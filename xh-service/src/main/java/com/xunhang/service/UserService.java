@@ -7,8 +7,11 @@ import com.xunhang.pojo.dto.ModifyPwdDTO;
 import com.xunhang.pojo.dto.RegisterDTO;
 import com.xunhang.pojo.entity.User;
 import com.xunhang.pojo.vo.LoginVO;
+import com.xunhang.pojo.vo.OnlineTerminalVO;
 import com.xunhang.pojo.vo.UserLoginVO;
 import com.xunhang.pojo.vo.UserVO;
+
+import java.util.List;
 
 /**
  * @author 22477
@@ -64,4 +67,38 @@ public interface UserService extends IService<User> {
      * @return 用户VO
      */
     UserVO getSelf();
+
+    /***** im相关 ******/
+    User findUserByUserName(String username);
+
+    /**
+     * 更新用户信息，好友昵称和群聊昵称等冗余信息也会更新
+     *
+     * @param vo 用户信息vo
+     */
+    void update(UserVO vo);
+
+    /**
+     * 根据用户昵id查询用户以及在线状态
+     *
+     * @param id 用户id
+     * @return 用户信息
+     */
+    UserVO findUserById(Long id);
+
+    /**
+     * 根据用户昵称查询用户，最多返回20条数据
+     *
+     * @param name 用户名或昵称
+     * @return 用户列表
+     */
+    List<UserVO> findUserByName(String name);
+
+    /**
+     * 获取用户在线的终端类型
+     *
+     * @param userIds 用户id，多个用‘,’分割
+     * @return 在线用户终端
+     */
+    List<OnlineTerminalVO> getOnlineTerminals(String userIds);
 }
