@@ -11,7 +11,7 @@
  Target Server Version : 80034 (8.0.34)
  File Encoding         : 65001
 
- Date: 07/08/2024 15:30:53
+ Date: 07/08/2024 20:20:28
 */
 
 SET NAMES utf8mb4;
@@ -165,31 +165,15 @@ CREATE TABLE `item_image`  (
 -- ----------------------------
 -- Records of item_image
 -- ----------------------------
-INSERT INTO `item_image` VALUES (1, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-20/1703074628015', 20);
-INSERT INTO `item_image` VALUES (2, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-03-27/1711508012236', 36);
-INSERT INTO `item_image` VALUES (3, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-03-27/1711508649611', 37);
-INSERT INTO `item_image` VALUES (4, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-03-30/1711808453799', 38);
-INSERT INTO `item_image` VALUES (5, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-03-30/1711809496391', 39);
-INSERT INTO `item_image` VALUES (6, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-04-11/1712828679532', 40);
-INSERT INTO `item_image` VALUES (7, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-04-25/1714046276460', 42);
-INSERT INTO `item_image` VALUES (8, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-04-27/1714223712940', 46);
-INSERT INTO `item_image` VALUES (9, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-04-27/1714224208642', 47);
-INSERT INTO `item_image` VALUES (10, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-04-27/1714224455912', 48);
-INSERT INTO `item_image` VALUES (13, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-20/1703077508884', 25);
-INSERT INTO `item_image` VALUES (14, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-20/1703077514019', 25);
-INSERT INTO `item_image` VALUES (15, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-20/1703077516161', 25);
-INSERT INTO `item_image` VALUES (16, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-21/1703145701352', 26);
-INSERT INTO `item_image` VALUES (17, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-21/1703145837676', 27);
-INSERT INTO `item_image` VALUES (18, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-21/1703146028718', 28);
-INSERT INTO `item_image` VALUES (19, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2023-12-21/1703146349325', 29);
-INSERT INTO `item_image` VALUES (20, 'http://tmp/KXRNnxCmSDEZ1051e854dd12d3617204b31f85f5b4e9.jpg', 50);
-INSERT INTO `item_image` VALUES (21, 'http://tmp/wWC2fkJ3CFwP1051e854dd12d3617204b31f85f5b4e9.jpg', 53);
-INSERT INTO `item_image` VALUES (22, 'http://tmp/BG4bh2RB6JgD1051e854dd12d3617204b31f85f5b4e9.jpg', 54);
-INSERT INTO `item_image` VALUES (23, 'http://tmp/7qTiwuI9MuIv1051e854dd12d3617204b31f85f5b4e9.jpg', 55);
-INSERT INTO `item_image` VALUES (24, 'http://127.0.0.1:9000/xunhang/itemImage/20240709/1720536261681.jpg', 64);
-INSERT INTO `item_image` VALUES (25, 'http://127.0.0.1:9000/xunhang/itemImage/20240709/1720536261681.jpg', 64);
-INSERT INTO `item_image` VALUES (26, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-08-07/1723014686830.jpg', 66);
-INSERT INTO `item_image` VALUES (27, 'https://xunhang.oss-cn-beijing.aliyuncs.com/itemImage/2024-08-07/1723014686830.jpg', 66);
+INSERT INTO `item_image` VALUES (1, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723024724515.jpg', 20);
+INSERT INTO `item_image` VALUES (13, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723024775539.jpg', 25);
+INSERT INTO `item_image` VALUES (14, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723024829403.jpg', 25);
+INSERT INTO `item_image` VALUES (15, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723024905665.jpg', 25);
+INSERT INTO `item_image` VALUES (16, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723024949174.jpg', 26);
+INSERT INTO `item_image` VALUES (17, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723024991432.jpg', 27);
+INSERT INTO `item_image` VALUES (18, 'https://minio.fengqingmo.top/xunhang/headImage/20240807/1723025036239.jpg', 28);
+INSERT INTO `item_image` VALUES (26, 'https://minio.fengqingmo.top/blog/aurora/articles/3078560e560f170f060e83f466579d6d.jpg', 66);
+INSERT INTO `item_image` VALUES (27, 'https://minio.fengqingmo.top/blog/aurora/articles/3078560e560f170f060e83f466579d6d.jpg', 66);
 
 -- ----------------------------
 -- Table structure for user
