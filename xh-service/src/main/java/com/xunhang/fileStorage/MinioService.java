@@ -1,4 +1,4 @@
-package com.xunhang.thirdparty.fileStorage;
+package com.xunhang.fileStorage;
 
 import com.xunhang.common.utils.UserUtil;
 import com.xunhang.common.enums.ExceptionEnums;

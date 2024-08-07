@@ -13,7 +13,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>im-platform</module>
         <module>im-server</module>
         <module>im-commom</module>
         <module>im-client</module>
@@ -111,34 +110,7 @@
                 <artifactId>commons-io</artifactId>
                 <version>2.6</version>
             </dependency>
-            <dependency>
-                <groupId>dom4j</groupId>
-                <artifactId>dom4j</artifactId>
-                <version>1.6.1</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-mapper-asl</artifactId>
-                <version>1.9.13</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.interceptor</groupId>
-                <artifactId>javax.interceptor-api</artifactId>
-                <version>1.2</version>
-            </dependency>
 
-            <!---更换feign的http客户端为okhttp，默认为httpclient-->
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-okhttp</artifactId>
-                <version>${feign-okhttp.version}</version>
-            </dependency>
-            <!-- feign-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>${spring-cloud-openfeign-version}</version>
-            </dependency>
 
         </dependencies>
 

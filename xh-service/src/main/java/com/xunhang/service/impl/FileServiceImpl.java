@@ -2,7 +2,7 @@ package com.xunhang.service.impl;
 
 import com.xunhang.pojo.vo.UploadImageVO;
 import com.xunhang.service.FileService;
-import com.xunhang.thirdparty.fileStorage.FileStorageUtil;
+import com.xunhang.fileStorage.FileStorageUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

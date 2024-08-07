@@ -33,5 +33,4 @@ public class FileController {
         return ResultUtils.success(fileService.uploadImage(file, filePath));
     }
 
-
 }

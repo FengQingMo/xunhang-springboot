@@ -1,4 +1,4 @@
-package com.xunhang.thirdparty.fileStorage;
+package com.xunhang.fileStorage;
 
 import com.xunhang.pojo.vo.UploadImageVO;
 import org.springframework.stereotype.Component;

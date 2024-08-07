@@ -10,6 +10,7 @@
     <modules>
         <module>xh-service</module>
         <module>xh-common</module>
+        <module>box-im</module>
     </modules>
 
     <parent>

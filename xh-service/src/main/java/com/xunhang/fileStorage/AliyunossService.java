@@ -1,4 +1,4 @@
-package com.xunhang.thirdparty.fileStorage;
+package com.xunhang.fileStorage;
 
 import cn.hutool.core.date.DateUtil;
 import com.aliyun.oss.ClientException;

@@ -28,18 +28,18 @@ class XunhangApplicationTests {
     //    rabbitTemplate.convertAndSend(RabbitConstant.Message_EXCHANGE_NAME, RabbitConstant.Message_ROUTING_KEY_NAME, JSONUtil.toJsonStr(wxInfoDTO));
     //}
 
-    @Test
-    // 生成accesstoken
-    public void acccesstest() {
-        UserSession session = new UserSession();
-        session.setNickname("雪净痕");
-        session.setUsername("雪净痕");
-        session.setTerminal(0);
-        session.setUserId(2L);
-        String strJson = JSON.toJSONString(session);
-        String accessToken = JwtUtil.sign(2L, strJson, jwtProperties.getUserTtl(), jwtProperties.getUserSecretKey());
-        System.out.println(accessToken);
-    }
+    //@Test
+    //// 生成accesstoken
+    //public void acccesstest() {
+    //    UserSession session = new UserSession();
+    //    session.setNickname("雪净痕");
+    //    session.setUsername("雪净痕");
+    //    session.setTerminal(0);
+    //    session.setUserId(2L);
+    //    String strJson = JSON.toJSONString(session);
+    //    String accessToken = JwtUtil.sign(2L, strJson, jwtProperties.getUserTtl(), jwtProperties.getUserSecretKey());
+    //    System.out.println(accessToken);
+    //}
 
     /**
      * 获取加密的密码
