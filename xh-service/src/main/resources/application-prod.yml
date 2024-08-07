@@ -76,10 +76,10 @@ xunhang:
     refresh-token-secret: IKDiqVmn0VFU
     refresh-token-expire-in: 604800 #7天
   alioss:
-    access-key: LTAI5tLmD6fA9X52AZcp1XhG
+    access-key: key
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-secret: txaI5kUqbWtV8cCMc1we3idGpDHI7d
+    access-key-secret: 密码
     bucket-name: xunhang
   wechat:
-    appid: wx569461cd45719772
-    secret: d901af658052f55ad70fc91ac46fdcba
+    appid: appid
+    secret: 密码
